@@ -21,49 +21,56 @@ class ModeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          ClipOval(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-              child: Container(
-                height: height ?? 80,
-                width: 80,
-                decoration: BoxDecoration(
-                  color: Color(0xff30393C).withOpacity(0.5),
-                  shape: BoxShape.circle,
-                  border:
-                      isSelected
-                          ? Border.all(color: Colors.white, width: 2)
-                          : null,
-                ),
-                child: SvgPicture.asset(
-                  picturePath,
-                  fit: BoxFit.none,
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: onTap,
+          child: Column(
+            children: [
+              ClipOval(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  child: Container(
+                    height: height ?? 80,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      color: Color(0xff30393C).withOpacity(0.5),
+                      shape: BoxShape.circle,
+                      border:
+                          isSelected
+                              ? Border.all(
+                                color: Colors.white,
+                                width: 2,
+                              )
+                              : null,
+                    ),
+                    child: SvgPicture.asset(
+                      picturePath,
+                      fit: BoxFit.none,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              // ElevatedButton(
+              //   onPressed: onPressed,
+              //   style: ElevatedButton.styleFrom(
+              //     minimumSize: Size.fromHeight(height ?? 80),
+              //   ),
+              //   child: SvgPicture.asset(picturePath),
+              // ),
+            ],
           ),
-          // ElevatedButton(
-          //   onPressed: onPressed,
-          //   style: ElevatedButton.styleFrom(
-          //     minimumSize: Size.fromHeight(height ?? 80),
-          //   ),
-          //   child: SvgPicture.asset(picturePath),
-          // ),
-          SizedBox(height: 30),
-          Text(
-            title,
-            style: TextStyle(
-              color: AppColors.lightGrey,
-              fontSize: 17,
-              fontWeight: FontWeight.w500,
-            ),
+        ),
+        SizedBox(height: 20),
+        Text(
+          title,
+          style: TextStyle(
+            color: AppColors.lightGrey,
+            fontSize: 17,
+            fontWeight: FontWeight.w500,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
