@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_app/common/widgets/basic_app_button.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
-import 'package:spotify_app/core/configs/theme/app_colors.dart';
+import 'package:spotify_app/presentation/auth/pages/choose_auth.dart';
 import 'package:spotify_app/presentation/choose_mode/cubit/theme_cubit.dart';
 import 'package:spotify_app/presentation/choose_mode/widgets/mode_button.dart';
 
@@ -56,42 +56,59 @@ class ChooseModePage extends StatelessWidget {
                 SizedBox(height: 35),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(
-                    modes.length,
-                    (index) => Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      child: BlocBuilder<ThemeCubit, ThemeMode>(
-                        builder: (context, mode) {
-                          final currentMode =
-                              index == 0
-                                  ? ThemeMode.dark
-                                  : ThemeMode.light;
-                          final isSelected = mode == currentMode;
-                          return ModeButton(
-                            title: modes[index],
-                            picturePath: picturesPath[index],
-                            isSelected: isSelected,
-                            onTap: () {
-                              context.read<ThemeCubit>().updateTheme(
-                                currentMode,
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ),
+                  // children: [
+                  //   ModeButton(
+                  //     title: modes[index],
+                  //     picturePath: picturesPath[index],
+                  //     isSelected: isSelected,
+                  //     onTap: () {
+                  //       context.read<ThemeCubit>().updateTheme(
+                  //         ThemeMode.dark,
+                  //       );
+                  //     },
+                  //   ),
+                  //   ModeButton(
+                  //     title: modes[index],
+                  //     picturePath: picturesPath[index],
+                  //     isSelected: isSelected,
+                  //     onTap: () {
+                  //       context.read<ThemeCubit>().updateTheme(
+                  //         ThemeMode.light,
+                  //       );
+                  //     },
+                  //   ),
+                  // ],
+                  children: List.generate(modes.length, (index) {
+                    final currentMode =
+                        [ThemeMode.dark, ThemeMode.light][index];
+                    final isSelected =
+                        context.watch<ThemeCubit>().state ==
+                        currentMode;
+
+                    return ModeButton(
+                      title: modes[index],
+                      picturePath: picturesPath[index],
+                      isSelected: isSelected,
+                      onTap: () {
+                        context.read<ThemeCubit>().updateTheme(
+                          currentMode,
+                        );
+                        // print(currentMode);
+                      },
+                    );
+                  }),
                 ),
                 SizedBox(height: 50),
                 BasicAppButton(
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
                       context,
-                      ChooseModePage.routeName,
+                      ChooseAuth.routeName,
                       (_) => false,
                     );
                   },
                   title: 'Continue',
+                  fontSize: 20,
                 ),
                 SizedBox(height: 15),
               ],
