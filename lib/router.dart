@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_app/presentation/auth/pages/choose_auth.dart';
 import 'package:spotify_app/presentation/choose_mode/pages/choose_mode_page.dart';
 import 'package:spotify_app/presentation/intro/pages/intro_page.dart';
 import 'package:spotify_app/presentation/splash/pages/splash_page.dart';
@@ -19,6 +20,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ChooseModePage(),
+      );
+    case ChooseAuth.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => ChooseAuth(),
       );
     default:
       return MaterialPageRoute(
