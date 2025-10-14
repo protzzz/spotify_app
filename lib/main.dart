@@ -18,6 +18,7 @@ void main() async {
               (await getTemporaryDirectory()).path,
             ),
   );
+
   runApp(const MyApp());
 }
 
@@ -34,7 +35,9 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               onGenerateRoute: (settings) => generateRoute(settings),
               title: 'Flutter Demo',
+              themeMode: mode,
               theme: AppTheme.lightTheme,
+              darkTheme: AppTheme.darkTheme,
               home: const SplashPage(),
             ),
       ),
