@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_app/common/helpers/is_dark_mode.dart';
+import 'package:spotify_app/common/extensions/is_dark_mode.dart';
 
 class AuthAppbar extends StatelessWidget {
   const AuthAppbar({super.key});
@@ -10,15 +10,16 @@ class AuthAppbar extends StatelessWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       leading: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
         icon: Container(
           height: 50,
           width: 50,
           decoration: BoxDecoration(
             color:
                 context.isDarkMode
-                    ? Colors.white
-                    // ? Colors.white.withOpacity(0.04)
+                    ? Colors.black.withOpacity(0.04)
                     : Colors.white.withOpacity(0.03),
             shape: BoxShape.circle,
           ),
