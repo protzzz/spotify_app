@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotify_app/common/extensions/navx.dart';
 import 'package:spotify_app/common/widgets/basic_app_button.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
@@ -101,11 +102,7 @@ class ChooseModePage extends StatelessWidget {
                 SizedBox(height: 50),
                 BasicAppButton(
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      ChooseAuth.routeName,
-                      (_) => false,
-                    );
+                    context.go(ChooseAuth.routeName);
                   },
                   title: 'Continue',
                   fontSize: 20,

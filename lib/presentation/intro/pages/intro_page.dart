@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotify_app/common/extensions/navx.dart';
 import 'package:spotify_app/common/widgets/basic_app_button.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
@@ -61,11 +62,7 @@ class IntroPage extends StatelessWidget {
                 SizedBox(height: 20),
                 BasicAppButton(
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      ChooseModePage.routeName,
-                      (_) => false,
-                    );
+                    context.replaceWith(ChooseModePage.routeName);
                   },
                   title: 'Get Started',
                 ),
