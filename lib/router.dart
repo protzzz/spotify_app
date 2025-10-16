@@ -28,15 +28,15 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => ChooseAuthType(),
       );
-    case SignIn.routeName:
+    case SignInPage.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => SignIn(),
+        builder: (_) => SignInPage(),
       );
-    case SignUp.routeName:
+    case SignUpPage.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => SignUp(),
+        builder: (_) => SignUpPage(),
       );
     default:
       return MaterialPageRoute(
