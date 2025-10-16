@@ -5,7 +5,7 @@ import 'package:spotify_app/common/extensions/navx.dart';
 import 'package:spotify_app/common/widgets/basic_app_button.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
-import 'package:spotify_app/presentation/auth/pages/choose_auth.dart';
+import 'package:spotify_app/presentation/auth/pages/choose_auth_type_page.dart';
 import 'package:spotify_app/presentation/choose_mode/cubit/theme_cubit.dart';
 import 'package:spotify_app/presentation/choose_mode/widgets/mode_button.dart';
 
@@ -102,7 +102,7 @@ class ChooseModePage extends StatelessWidget {
                 SizedBox(height: 50),
                 BasicAppButton(
                   onPressed: () {
-                    context.go(ChooseAuth.routeName);
+                    context.go(ChooseAuthType.routeName);
                   },
                   title: 'Continue',
                   fontSize: 20,
