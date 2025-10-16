@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify_app/common/extensions/is_dark_mode.dart';
+import 'package:spotify_app/common/extensions/navx.dart';
 import 'package:spotify_app/common/widgets/auth_appbar.dart';
 import 'package:spotify_app/common/widgets/basic_app_button.dart';
 import 'package:spotify_app/core/configs/assets/app_images.dart';
 import 'package:spotify_app/core/configs/assets/app_vectors.dart';
+import 'package:spotify_app/presentation/auth/pages/signin_page.dart';
+import 'package:spotify_app/presentation/auth/pages/signup_page.dart';
 
-class ChooseAuth extends StatelessWidget {
+class ChooseAuthType extends StatelessWidget {
   static const String routeName = '/choose-auth';
-  const ChooseAuth({super.key});
+  const ChooseAuthType({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +67,9 @@ class ChooseAuth extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: BasicAppButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.go(SignUpPage.routeName);
+                          },
                           title: 'Register',
                           fontSize: 19,
                         ),
@@ -73,7 +78,9 @@ class ChooseAuth extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.go(SignInPage.routeName);
+                          },
                           child: Text(
                             'Sign in',
                             style: TextStyle(
